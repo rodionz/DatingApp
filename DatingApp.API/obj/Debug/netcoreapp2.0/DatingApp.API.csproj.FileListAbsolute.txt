@@ -13,3 +13,8 @@ D:/Github/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.0/DatingApp.API.pdb
 /Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.0/DatingApp.API.AssemblyInfo.cs
 /Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.0/DatingApp.API.dll
 /Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.0/DatingApp.API.pdb
+/Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.0/DatingApp.API.deps.json
+/Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.0/DatingApp.API.runtimeconfig.json
+/Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.0/DatingApp.API.runtimeconfig.dev.json
+/Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.0/DatingApp.API.dll
+/Users/rodionzinovyev/GitHub/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.0/DatingApp.API.pdb
