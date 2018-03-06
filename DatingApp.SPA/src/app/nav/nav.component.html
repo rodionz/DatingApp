@@ -15,14 +15,14 @@
         <li><a href="#">Lists</a></li>
         <li><a href="#">Messages</a></li>
       </ul>
-      <form class="navbar-form navbar-right">
+      <form #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="onSubmit()" >
         <div class="form-group">
-          <input type="text" placeholder="Email" class="form-control">
+          <input type="text" placeholder="Email" class="form-control" name="username" required [(ngModel)]="model.username">
         </div>
         <div class="form-group">
-          <input type="password" placeholder="Password" class="form-control">
+          <input type="password" placeholder="Password" class="form-control" name="password" required [(ngModel)]="model.password">>
         </div>
-        <button type="submit" class="btn btn-success">Sign in</button>
+        <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success">Sign in</button>
       </form>
     </div><!--/.navbar-collapse -->
   </div>
