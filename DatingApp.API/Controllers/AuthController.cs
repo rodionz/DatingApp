@@ -55,7 +55,7 @@ namespace DatingApp.API.Controllers
                 return Unauthorized();
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes((config.GetSection("Appsettings:Token").Value);
+            var key = Encoding.ASCII.GetBytes((config.GetSection("Appsettings:Token").Value));
             var tokenDescriptor = new SecurityTokenDescriptor
             {
 
