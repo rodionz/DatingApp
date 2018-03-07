@@ -15,7 +15,7 @@
         <li><a href="#">Lists</a></li>
         <li><a href="#">Messages</a></li>
       </ul>
-      <form #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="onSubmit()" >
+      <form *ngIf="!LoggedIn()" #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="onSubmit()" >
         <div class="form-group">
           <input type="text" placeholder="Email" class="form-control" name="username" required [(ngModel)]="model.username">
         </div>
@@ -24,6 +24,24 @@
         </div>
         <button type="submit" [disabled]="!loginForm.valid" class="btn btn-success">Sign in</button>
       </form>
+
+      <ul *ngIf="LoggedIn()" class="nav navbar-nav navbar-right">
+        <li><a (click)="onLogout()">Logout</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" 
+          data-toggle="dropdown"
+           role="button"
+            aria-haspopup="true"
+             aria-expanded="false">Welcome User 
+             <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="fa fa-user"></i>Edit Profile</a></li>
+            
+            <li role="separator" class="divider"></li>
+            <li><a (click)="onLogout()"><i class="fa fa-sign-out"></i>Logout</a></li>
+          </ul>
+        </li>
+      </ul>
     </div><!--/.navbar-collapse -->
   </div>
 </nav>
