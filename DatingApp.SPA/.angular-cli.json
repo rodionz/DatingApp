@@ -25,7 +25,9 @@
         "../node_modules/alertifyjs/build/css/themes/bootstrap.min.css",
         "styles.css"
       ],
-      "scripts": ["../node_modules/alertifyjs/build/css/alertify.min.css"],
+      "scripts": [
+        "../node_modules/alertifyjs/build/alertify.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
