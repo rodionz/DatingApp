@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './Services/alertify.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
+import { BsDropdownModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [AuthService, AlertifyService],
   bootstrap: [AppComponent]
