@@ -7,13 +7,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Dating App</a>
+      <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="router-link-active" >Dating App</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav" *ngIf="LoggedIn()">
-        <li><a href="#">Matches</a></li>
-        <li><a href="#">Lists</a></li>
-        <li><a href="#">Messages</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/members']" routerLinkActive="router-link-active" >Matches</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/lists']" routerLinkActive="router-link-active" >Lists</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/messages']" routerLinkActive="router-link-active" >Messages</a></li>
       </ul>
       <form *ngIf="!LoggedIn()" #loginForm="ngForm" class="navbar-form navbar-right" (ngSubmit)="onSubmit()" >
         <div class="form-group">

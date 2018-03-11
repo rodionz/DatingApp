@@ -10,6 +10,11 @@ import { AlertifyService } from './Services/alertify.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { MemberListComponent } from './member-list/member-list.component';
+import { ListsComponent } from './lists/lists.component';
+import { MessagesComponent } from './messages/messages.component';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './Routes';
 
 
 @NgModule({
@@ -18,12 +23,18 @@ import { BsDropdownModule } from 'ngx-bootstrap';
     NavComponent,
     HomeComponent,
     RegisterComponent
+,
+    MemberListComponent,
+    ListsComponent,
+    MessagesComponent
 ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    
   ],
   providers: [AuthService, AlertifyService],
   bootstrap: [AppComponent]
