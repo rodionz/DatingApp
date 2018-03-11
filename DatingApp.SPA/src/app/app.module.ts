@@ -15,6 +15,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './Routes';
+import { AuthGuard } from './Guards/auth.guard';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { appRoutes } from './Routes';
     BsDropdownModule.forRoot(),
     
   ],
-  providers: [AuthService, AlertifyService],
+  providers: [AuthService, AlertifyService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
