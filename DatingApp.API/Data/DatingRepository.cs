@@ -24,20 +24,21 @@ namespace DatingApp.API.Data
            _contex.Remove(entity);
         }
 
-        public Task<User> GetUser(int id)
+        public async Task<User> GetUser(int id)
         {
-            var user = _contex.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _contex.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 
-        public Task<IEnumerable<User>> GetUsers()
+        public async Task<IEnumerable<User>> GetUsers()
         {
-            throw new System.NotImplementedException();
+            var users = await _contex.Users.Include(p => p.Photos).ToListAsync();
+            return users;
         }
 
-        public Task<bool> SavaAll()
+        public async Task<bool> SavaAll()
         {
-            throw new System.NotImplementedException();
+           return await _contex.SaveChangesAsync() > 0;
         }
     }
 }
