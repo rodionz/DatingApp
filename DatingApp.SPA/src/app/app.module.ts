@@ -10,12 +10,14 @@ import { AlertifyService } from './Services/alertify.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { BsDropdownModule } from 'ngx-bootstrap';
-import { MemberListComponent } from './member-list/member-list.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './Routes';
 import { AuthGuard } from './Guards/auth.guard';
+import { UsersService } from './Services/Users.service';
+import { MemberListComponent } from './Members/member-list/member-list.component';
+import { MemberCardComponent } from './Members/member-card/member-card.component';
 
 
 @NgModule({
@@ -23,11 +25,11 @@ import { AuthGuard } from './Guards/auth.guard';
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegisterComponent
-,
+    RegisterComponent,
     MemberListComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
+    MemberCardComponent
 ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -37,7 +39,10 @@ import { AuthGuard } from './Guards/auth.guard';
     BsDropdownModule.forRoot(),
     
   ],
-  providers: [AuthService, AlertifyService, AuthGuard],
+  providers: [AuthService,
+  AlertifyService, AuthGuard, UsersService],
+
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
