@@ -5,12 +5,14 @@ import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { AuthGuard } from './Guards/auth.guard';
 import { MemberListComponent } from './Members/member-list/member-list.component';
+import { MemberDetailComponent } from './Members/member-detail/member-detail.component';
 
 
 export const appRoutes: Routes = [
 {path: 'home', component: HomeComponent},
 {path: '', runGuardsAndResolvers : 'always', canActivate: [AuthGuard], children: [
     {path: 'members', component: MemberListComponent},
+    {path: 'members/:id', component: MemberDetailComponent},
     {path: 'messages', component: MessagesComponent},
     {path: 'lists', component: ListsComponent}
 ]},

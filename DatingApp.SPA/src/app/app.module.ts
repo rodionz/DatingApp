@@ -18,6 +18,8 @@ import { AuthGuard } from './Guards/auth.guard';
 import { UsersService } from './Services/Users.service';
 import { MemberListComponent } from './Members/member-list/member-list.component';
 import { MemberCardComponent } from './Members/member-card/member-card.component';
+import { AuthModule } from './auth/auth.module';
+import { MemberDetailComponent } from './Members/member-detail/member-detail.component';
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { MemberCardComponent } from './Members/member-card/member-card.component
     MemberListComponent,
     ListsComponent,
     MessagesComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    MemberDetailComponent
 ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -37,12 +40,13 @@ import { MemberCardComponent } from './Members/member-card/member-card.component
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
-    
+    AuthModule
+
   ],
   providers: [AuthService,
   AlertifyService, AuthGuard, UsersService],
 
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

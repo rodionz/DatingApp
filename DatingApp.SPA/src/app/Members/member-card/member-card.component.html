@@ -1,7 +1,13 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="panel-image">
-    <img src="{{user.photoUrl}}" alt="{{user.knownAs}}"></div>
+    <img src="{{user.photoUrl}}" alt="{{user.knownAs}}">
+    <ul class="list-inline member-icons animate text-center">
+      <li><button class="btn btn-primary" [routerLink]="['/members', user.id]" routerLinkActive="router-link-active" ><i class="fa fa-user"></i></button></li>
+      <li><button class="btn btn-primary"><i class="fa fa-heart"></i></button></li>
+      <li><button class="btn btn-primary"><i class="fa fa-envelope"></i></button></li>
+    </ul>
+  </div>
     <div class="text-center">
       <h5><i class="fa fa-user"></i>{{user.knownAs}}, {{user.age}}</h5>
     </div>

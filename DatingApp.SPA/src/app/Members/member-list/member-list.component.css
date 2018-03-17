@@ -1,0 +1,5 @@
+.equal{
+    display: flex;
+    flex-flow : row wrap;
+    align-content: flex-end;
+}
