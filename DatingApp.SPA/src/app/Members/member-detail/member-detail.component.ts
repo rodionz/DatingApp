@@ -26,4 +26,5 @@ export class MemberDetailComponent implements OnInit {
      , error => {
        this.alertify.error(error);
      })
+    }
 }

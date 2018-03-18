@@ -18,9 +18,10 @@ options: RequestOptions) {
   providers: [
     {
       provide: AuthHttp,
-       useFactory: authHttpServiceFactory,
+      useFactory: authHttpServiceFactory,
        // tslint:disable-next-line:no-trailing-whitespace
-       deps: [Http, RequestOptions]  
+      deps: [Http, RequestOptions]  
     }
+  ]
   })
 export class AuthModule { }

@@ -9,7 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { AlertifyService } from './Services/alertify.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { BsDropdownModule } from 'ngx-bootstrap';
+import { BsDropdownModule, TabsModule } from 'ngx-bootstrap';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
@@ -40,6 +40,7 @@ import { MemberDetailComponent } from './Members/member-detail/member-detail.com
     HttpModule,
     FormsModule,
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     AuthModule
 
   ],
