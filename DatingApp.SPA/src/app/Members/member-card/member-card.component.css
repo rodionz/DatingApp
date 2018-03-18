@@ -54,10 +54,10 @@ img{
 .animate{
     transition: all 0.3s ease-in-out;
 }
-@media (max-width: 768px){
-    .btn{
-        padding: 2px 4px;
-        font-size:80%;
-        line-height: 1;
+
+    .btn {
+      padding: 4px 8px;
+      font-size: 90%;
+      line-height: 1.5;
     }
-}
+

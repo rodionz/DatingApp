@@ -20,6 +20,8 @@ import { MemberListComponent } from './Members/member-list/member-list.component
 import { MemberCardComponent } from './Members/member-card/member-card.component';
 import { AuthModule } from './auth/auth.module';
 import { MemberDetailComponent } from './Members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
+import { MemberListResolver } from './_resolvers/member-list.resolver';
 
 
 @NgModule({
@@ -44,8 +46,12 @@ import { MemberDetailComponent } from './Members/member-detail/member-detail.com
     AuthModule
 
   ],
-  providers: [AuthService,
-  AlertifyService, AuthGuard, UsersService],
+  providers: [
+  AuthService,
+  AlertifyService, AuthGuard,
+   UsersService, MemberDetailResolver,
+  MemberListResolver
+  ],
 
 
   bootstrap: [AppComponent]

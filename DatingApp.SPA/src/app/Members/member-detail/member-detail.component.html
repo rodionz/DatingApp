@@ -1,27 +1,27 @@
-<div class="vontainer">
+<div class="container">
   <div class="row">
-    <h1>{{user?.knownAs}}'s Profile</h1>
+    <h2>{{user.knownAs}}'s Profile</h2>
   </div>
   <div class="row">
     <div class="col-sm-4">
-      <div class="panel panel default">
+      <div class="panel panel-default">
         <img class="profile-image thumbnail" src="{{user?.photoUrl}}" alt="{{user?.knownAs}}">
         <div class="panel-body">
           <div>
             <strong>Location:</strong>
-            <p>{{user?.city}}, {{user?.country}}</p>
+            <p>{{user.city}}, {{user?.country}}</p>
           </div>
           <div>
             <strong>Age:</strong>
-            <p>{{user?.age}}</p>
+            <p>{{user.age}}</p>
           </div>
           <div>
             <strong>Last Active:</strong>
-            <p>{{user?.lastActive}}</p>
+            <p>{{user.lastActive}}</p>
           </div>
           <div>
             <strong>Member Since:</strong>
-            <p>{{user?.created}}</p>
+            <p>{{user.created}}</p>
           </div>
         </div>
         <div class="panel-footer">
@@ -40,14 +40,13 @@
       <tabset class="member-tabset">
         <tab heading="About {{user?.knownAs}}">
           <h4>Description</h4>
-          <p>{{user?.introduction}}</p>
+          <p>{{user.introduction}}</p>
           <h4>Looking For:</h4>
-          <p>{{user?.lookingFor}}</p>
+          <p>{{user.lookingFor}}</p>
         </tab>
         <tab heading="Interests">
           <h4>Description</h4>
-          <p>{{user?.interests}}</p>
-          
+          <p>{{user.interests}}</p>        
         </tab>
         <tab heading="Photos">
          <p>Photos will go here</p>

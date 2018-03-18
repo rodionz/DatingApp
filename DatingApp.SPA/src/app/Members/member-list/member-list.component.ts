@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/User';
 import { UsersService } from '../../Services/Users.service';
 import { AlertifyService } from '../../Services/alertify.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -13,12 +14,13 @@ import { AlertifyService } from '../../Services/alertify.service';
 export class MemberListComponent implements OnInit {
 Users: User[]
 
-  constructor(private userService: UsersService, private alertify: AlertifyService) { }
+  constructor(private userService: UsersService, private alertify: AlertifyService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.userService.getUsers()
-    .subscribe((users: User[]) => {this.Users = users},
-    error => {this.alertify.error(error)});
+   // tslint:disable-next-line:no-unused-expression
+   this.route.data.subscribe(data => {
+     this.Users = data['users'];
+   });
   }
 
 }
