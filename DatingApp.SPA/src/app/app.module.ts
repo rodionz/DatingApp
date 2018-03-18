@@ -22,7 +22,7 @@ import { AuthModule } from './auth/auth.module';
 import { MemberDetailComponent } from './Members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './_resolvers/member-detail.resolver';
 import { MemberListResolver } from './_resolvers/member-list.resolver';
-
+import { NgxGalleryModule } from 'ngx-gallery';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import { MemberListResolver } from './_resolvers/member-list.resolver';
     FormsModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    AuthModule
+    AuthModule,
+    NgxGalleryModule
 
   ],
   providers: [
