@@ -1,3 +1,41 @@
-<p>
-  {{user?.knownAs}}
-</p>
+<div class="vontainer">
+  <div class="row">
+    <h1>{{user?.knownAs}}'s Profile</h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="panel panel default">
+        <img class="profile-image thumbnail" src="{{user?.photoUrl}}" alt="{{user?.knownAs}}">
+        <div class="panel-body">
+          <div>
+            <strong>Location:</strong>
+            <p>{{user?.city}}, {{user?.country}}</p>
+          </div>
+          <div>
+            <strong>Age:</strong>
+            <p>{{user?.age}}</p>
+          </div>
+          <div>
+            <strong>Last Active:</strong>
+            <p>{{user?.lastActive}}</p>
+          </div>
+          <div>
+            <strong>Member Since:</strong>
+            <p>{{user?.created}}</p>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <div class="btn-group-justified">
+            <div class="btn-group">
+              <button class="btn btn-primary">Like</button>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-success">Message</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-8"></div>
+  </div>
+</div>
