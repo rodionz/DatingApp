@@ -19,14 +19,21 @@ constructor(private authhttp: AuthHttp) { }
 
 
 
-getUsers(page?: number, itemsPerPage?: number){
+getUsers(page?: number, itemsPerPage?: number, userParams?: any){
 
     const paginatedResult: PaginatedResult<User[]> = new PaginatedResult<User[]>();
     // tslint:disable-next-line:prefer-const
     let queryString = '?';
 
     if(page != null && itemsPerPage != null){
-        queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage;
+        queryString += 'pageNumber=' + page + '&pageSize=' + itemsPerPage + '&';
+    }
+
+    if(userParams != null){
+        queryString+=
+        'minAge=' + userParams.minAge +
+        '&maxAge=' + userParams.maxAge +
+        '&gender=' + userParams.gender;
     }
 
     return this.authhttp
