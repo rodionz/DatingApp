@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DatingApp.API.Helpers;
 using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,16 +25,27 @@ namespace DatingApp.API.Data
            _contex.Remove(entity);
         }
 
+        public Task<Photo> GetMainPhotoForUser(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<Photo> GetPhoto(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public async Task<User> GetUser(int id)
         {
             var user = await _contex.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
             return user;
         }
 
-        public async Task<IEnumerable<User>> GetUsers()
+        public async Task<PagedList<User>> GetUsers(UserParams userParams)
         {
-            var users = await _contex.Users.Include(p => p.Photos).ToListAsync();
-            return users;
+            var users =  _contex.Users.Include(p => p.Photos);
+
+            return await PagedList<User>.CreateAsync(users, userParams.PageNumber, userParams.PageSize);
         }
 
         public async Task<bool> SavaAll()
