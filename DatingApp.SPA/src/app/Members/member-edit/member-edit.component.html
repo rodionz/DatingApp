@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-4"><h2>Your Profile</h2></div>
-    <div class="col-sm-8"> <div class="alert alert-info"><p><strong>Information:</strong>You have made changes. All unsaved changes will be lost!</p></div></div>
+    <div class="col-sm-8"> <div class="alert alert-info" [hidden]="!editForm.dirty">
+      <p><strong>Information:</strong>You have made changes. All unsaved changes will be lost!</p></div></div>
     
   </div>
   <div class="row">
@@ -27,13 +28,13 @@
           </div>
         </div>
         <div class="panel-footer">
-         <button class="btn btn-success btn-block">Save Changes</button>
+         <button [disabled]="!editForm.dirty" form="editForm" class="btn btn-success btn-block">Save Changes</button>
         </div>
       </div>
     </div>
     <div class="col-sm-8">
       <tabset class="member-tabset">
-        <tab heading="Edit Profile">
+        <tab heading="Edit Profile"><form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()">
           <h4>Description</h4>
           <textarea name="introduction" 
           rows="6" 
@@ -56,6 +57,7 @@
              <label for="country">Country: </label>
              <input type="text" type="text" name="country" [(ngModel)]="user.ccountry" class="form-control">
           </div>
+          </form>      
         </tab>
         <tab heading="Edit Photos">
        <p>Edit Photo</p>    

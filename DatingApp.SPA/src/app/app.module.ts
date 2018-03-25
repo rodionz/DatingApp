@@ -13,7 +13,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './Routes';
-import { AuthGuard } from './Guards/auth.guard';
+import { AuthGuard } from './_guards/auth.guard';
 import { UsersService } from './Services/Users.service';
 import { MemberListComponent } from './Members/member-list/member-list.component';
 import { MemberCardComponent } from './Members/member-card/member-card.component';
@@ -25,6 +25,7 @@ import { NgxGalleryModule } from 'ngx-gallery';
 import { MemberEditComponent } from './Members/member-edit/member-edit.component';
 import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { PreventUnsavedChanges } from './_guards/no-unsaved-changes-guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     UsersService,
     MemberDetailResolver,
     MemberListResolver,
-    MemberEditResolver
+    MemberEditResolver,
+    PreventUnsavedChanges 
   ],
 
   bootstrap: [AppComponent]
