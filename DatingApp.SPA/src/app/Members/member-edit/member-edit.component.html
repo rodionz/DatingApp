@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <h2>Your Profile</h2>
+    <div class="col-sm-4"><h2>Your Profile</h2></div>
+    <div class="col-sm-8"> <div class="alert alert-info"><p><strong>Information:</strong>You have made changes. All unsaved changes will be lost!</p></div></div>
+    
   </div>
   <div class="row">
     <div class="col-sm-4">
@@ -25,14 +27,7 @@
           </div>
         </div>
         <div class="panel-footer">
-          <div class="btn-group-justified">
-            <div class="btn-group">
-              <button class="btn btn-primary">Like</button>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-success">Message</button>
-            </div>
-          </div>
+         <button class="btn btn-success btn-block">Save Changes</button>
         </div>
       </div>
     </div>
@@ -40,9 +35,27 @@
       <tabset class="member-tabset">
         <tab heading="Edit Profile">
           <h4>Description</h4>
-          <p>{{user.introduction}}</p>
+          <textarea name="introduction" 
+          rows="6" 
+          class="form-control" 
+          [(ngModel)]="user.introduction"></textarea>
           <h4>Looking For:</h4>
-          <p>{{user.lookingFor}}</p>
+          <textarea name="lookingFor" 
+          rows="6" 
+          class="form-control" 
+          [(ngModel)]="user.lookingFor"></textarea>
+          <h4>Interests</h4>
+          <textarea name="interests" 
+          rows="6" 
+          class="form-control" 
+          [(ngModel)]="user.interests"></textarea>
+          <h4>Location Details: </h4>
+          <div class="form-inline">
+            <label for="city">City: </label>
+             <input type="text" type="text" name="city" [(ngModel)]="user.city" class="form-control">
+             <label for="country">Country: </label>
+             <input type="text" type="text" name="country" [(ngModel)]="user.ccountry" class="form-control">
+          </div>
         </tab>
         <tab heading="Edit Photos">
        <p>Edit Photo</p>    
