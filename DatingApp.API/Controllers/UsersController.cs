@@ -64,7 +64,7 @@ namespace DatingApp.API.Controllers
               return NoContent();
 
 
-           throw new Exception ("Failure on Save")  
+           throw new Exception ("Failure on Save");  
         }
     }
 }
