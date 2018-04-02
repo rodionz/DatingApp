@@ -32,7 +32,8 @@ namespace DatingApp.API.Data
 
         public Task<Photo> GetPhoto(int id)
         {
-            throw new System.NotImplementedException();
+           var photo =_contex.Photos.FirstOrDefaultAsync(p => p.Id == id);
+           return photo;
         }
 
         public async Task<User> GetUser(int id)

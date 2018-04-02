@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -6,6 +7,7 @@ using CloudinaryDotNet.Actions;
 using DatingApp.API.Data;
 using DatingApp.API.DTOs;
 using DatingApp.API.Helpers;
+using DatingApp.API.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -34,6 +36,17 @@ namespace DatingApp.API.Controllers {
             );
 
             _cloudinary = new Cloudinary(acc);
+        }
+
+        [HttpGet("{id}", Name = "GetPhoto")]
+        public async Task<IActionResult> GetPhoto(int id)
+        {
+            var photoFromRepo = _repository.GetPhoto(id);
+
+            var photo =_mapper.Map<PhotoForReturnDto>(photoFromRepo);
+
+            return Ok(photo);
+            
         }
 
         [HttpPost]
@@ -66,6 +79,24 @@ namespace DatingApp.API.Controllers {
                  }
              }
              photoDto.Url = uploadResult.Uri.ToString();
+             photoDto.PublicId = uploadResult.PublicId;
+
+             var photo =_mapper.Map<Photo>(photoDto);
+             photo.User = user;
+
+             if(!user.Photos.Any(m => m.IsMain))
+                 photo.IsMain = true;
+
+              user.Photos.Add(photo);
+
+              var photoToreturn = _mapper.Map<PhotoForReturnDto>(photo);
+
+              if(await _repository.SavaAll())
+              {
+                  return CreatedAtRoute("GetPhoto", new {id = photo.Id}, photoToreturn);
+              }   
+
+              return BadRequest("Could no add the photo");
         }
 
     }
