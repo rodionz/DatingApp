@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using DatingApp.API.Helpers;
 using DatingApp.API.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace DatingApp.API.Data
 {
@@ -25,9 +26,9 @@ namespace DatingApp.API.Data
            _contex.Remove(entity);
         }
 
-        public Task<Photo> GetMainPhotoForUser(int id)
+        public Task<Photo> GetMainPhotoForUser(int userId)
         {
-            throw new System.NotImplementedException();
+            return _contex.Photos.Where(u => u.Id == userId).FirstOrDefaultAsync(p => p.IsMain);
         }
 
         public Task<Photo> GetPhoto(int id)

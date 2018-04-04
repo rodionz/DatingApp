@@ -62,6 +62,11 @@ updateUser(id: number, user: User){
   .catch(this.handleError);
 }
 
+setMainPhoto(userId: number, id: number){
+    return this.authhttp.post(this.baseUrl + 'users/', + userId + '/photos/' + id + '/setMain', {})
+    .catch(this.handleError);
+}
+
 private handleError(error: any) {
 
     const applicationError = error.headers.get('Application-Error');
