@@ -1,5 +1,5 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Photo } from '../../models/Photo';
 import { FileUploader } from 'ng2-file-upload';
 import { environment } from '../../../environments/environment';
@@ -20,6 +20,7 @@ hasBaseDropZoneOver:boolean = false;
 hasAnotherDropZoneOver:boolean = false;
 baseUrl = environment.apiUrl;
 currentMain: Photo;
+@Output() getMemberPhotoChange = new EventEmitter<string>();
 
   constructor(private authService: AuthService,
               private userService: UsersService,
@@ -68,6 +69,7 @@ currentMain: Photo;
        this.currentMain = _.findWhere(this.photos, {isMain: true});
        this.currentMain.isMain = false;
        photo.isMain = true;
+       this.getMemberPhotoChange.emit(photo.url);
      }, error => {
        this.alertify.error(error);
      })
