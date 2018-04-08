@@ -24,6 +24,9 @@ namespace DatingApp.API.Models
 
     public ICollection<Message> MessagesSent { get; set; }
     public ICollection<Message> MessageRecieved { get; set; }
+
+    public ICollection<Like> Liker { get; set; }
+    public ICollection<Like> Likee { get; set; }
         
         public User(){
             Photos = new Collection<Photo>();
