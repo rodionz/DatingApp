@@ -17,15 +17,15 @@ namespace DatingApp.API.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Like>()
-                .HasKey(k => new {k.LikerId, k.LikeeId});
+                .HasKey(k => new { k.LikerId, k.LikeeId });
 
-            .builder.Entity<Like>()
+            builder.Entity<Like>()
                 .HasOne(u => u.Likee)
                 .WithMany(u => u.Liker)
                 .HasForeignKey(u => u.LikerId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            .builder.Entity<Like>()
+            builder.Entity<Like>()
                 .HasOne(u => u.Liker)
                 .WithMany(u => u.Likee)
                 .HasForeignKey(u => u.LikeeId)
